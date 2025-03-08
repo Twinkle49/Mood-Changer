@@ -1,9 +1,5 @@
-Here's a **README.md** for your Chrome extension:  
-It includes an overview, installation steps, usage, and contribution guidelines. 🚀  
 
----
-
-### **Refreshing Mood - Chrome Extension**  
+### **Mood-changer - Chrome Extension**  
 🌟 A Chrome extension that **helps improve your mood** by displaying **refreshing thoughts and activities** based on your current mood.  
 
 ---
@@ -27,7 +23,7 @@ It includes an overview, installation steps, usage, and contribution guidelines.
 ### **Method 2: Manual Installation (Developer Mode)**  
 1. **Download the source code** or clone the repository:  
    ```sh
-   git clone https://github.com/yourusername/refreshing-mood-extension.git
+   git clone (https://github.com/Twinkle49/Mood-Changer.git)
    ```
 2. Open **Google Chrome** and go to:  
    ```
@@ -71,6 +67,8 @@ This project is **open-source** and available under the **MIT License**.
 
 👤 Author
 Twinkle
+
 🔗 GitHub [https://github.com/Twinkle49]
+
 🔗 Linkdin [https://www.linkedin.com/in/twinkle-choudhary-1b5473201]
 
