@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+  <title>Developer Mood Refresh</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h2>How do you feel?</h2>
+
+    <select id="moodSelect">
+        <option value="" disabled selected>&#x27A1; Select Your Mood</option>
+        <option value="stressed">&#x1F62B; Stressed</option>
+        <option value="bored">&#x1F610; Bored</option>
+        <option value="sad">&#x1F614; Sad</option>
+        <option value="tired">&#x1F634; Tired</option>
+        <option value="anxious">&#x1F630; Anxious</option>
+        <option value="fearful">&#x1F631; Fearful</option>
+        <option value="frustrated">&#x1F620; Frustrated</option>
+        <option value="exhausted">&#x1F971; Exhausted</option>
+      </select>
+      
+
+      <button id="activate">✨ Refresh My Mood</button>
+
+      <h3>💭 Thought:</h3>
+      <p id="thoughtDisplay">Select a mood to see a thought!</p>
+  
+      <h3>🎯 Activity:</h3>
+      <p id="activityDisplay">Select a mood to get an activity!</p>
+
+    
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>
