@@ -1,47 +1,41 @@
 const activities = {
-    stressed: "💆‍♂️ Take a 5-minute break & do some desk stretching!",
-    bored: "🎨 Try a new CSS animation or design a cool UI!",
-    sad: "🎵 Listen to Lo-Fi beats while coding!",
-    tired: "🚶‍♂️ Walk around & get fresh air. Hydrate!",
-    anxious: "🧘 Do a 2-minute deep breathing exercise!",
-    fearful: "📖 Read a tech blog or success story for motivation!",
-    frustrated: "✍️ Refactor a messy function & make it cleaner!",
-    exhausted: "☕ Grab a coffee & do some light debugging!"
-  };
-  
-  const apiList = [
-    
-    "https://zenquotes.io/api/random",
-  ];
-  
-  document.getElementById("activate").addEventListener("click", function () {
-    const mood = document.getElementById("moodSelect").value;
-    
-    if (!mood) {
+  stressed: ["💆‍♂️ Organize your workspace!", "📅 Plan your tasks for the next hour!", "☕ Take a deep breath and relax!"],
+  bored: ["📝 Write 3 self-improvement ideas!", "🎨 Try sketching something creative!", "📑 Read a quick productivity tip!"],
+  sad: ["📖 Read an inspiring tech blog!", "🎵 Listen to soothing music!", "💬 Talk to a friend or mentor!"],
+  tired: ["🚶‍♂️ Stand up and stretch!", "☕ Grab some coffee!", "🌿 Take a break with fresh air!"],
+  anxious: ["🧘 Try a 2-minute meditation!", "📝 Write down 3 things you're grateful for!", "📑 Focus on a simple, easy task!"],
+  fearful: ["🔄 Review and simplify your current task!", "📖 Read a success story!", "🎧 Listen to motivational audio!"],
+  frustrated: ["✍️ Refactor a small part of your code!", "🗑️ Declutter your desk!", "📑 Take notes on your progress!"],
+  exhausted: ["☕ Drink water and relax!", "🎵 Listen to light background music!", "🚶 Walk around for 5 minutes!"]
+};
+
+const apiList = [
+  "https://uselessfacts.jsph.pl/random.json?language=en"
+];
+
+document.getElementById("activate").addEventListener("click", function () {
+  const mood = document.getElementById("moodSelect").value;
+
+  if (!mood) {
       alert("Please select a mood first!");
       return;
-    }
-  
-    // Set activity
-    document.getElementById("activityDisplay").innerHTML = ` ${activities[mood]}`;
-  
-    // Fetch a random thought from API 
-    const randomApi = apiList[Math.floor(Math.random() * apiList.length)];
-  
-    fetch(randomApi)
-      .then(function (response) {
-        return response.json();
+  }
+
+  // Select a random activity from the chosen mood category
+  const randomActivity = activities[mood][Math.floor(Math.random() * activities[mood].length)];
+  document.getElementById("activityDisplay").innerHTML = `📝 ${randomActivity}`;
+
+  // Fetch a random thought from API
+  const randomApi = apiList[Math.floor(Math.random() * apiList.length)];
+
+  fetch(randomApi)
+      .then(response => response.json())
+      .then(data => {
+          let thought = data.text || data.fact || "🤔 Keep learning something new!"; // Handle different API responses
+          document.getElementById("thoughtDisplay").innerHTML = `💡 ${thought}`;
       })
-      .then(function (data) {
-        if(data[0] && data[0].q) {
-          thought = data[0].q; // Zen Quotes API
-        } 
-  
-        document.getElementById("thoughtDisplay").innerHTML = `${thought}`;
-      })
-      .catch(function (error) {
-        console.error("Error fetching thought:", error);
-        document.getElementById("thoughtDisplay").innerHTML = "⚠️ Failed to load thought. Try again!";
+      .catch(error => {
+          console.error("Error fetching thought:", error);
+          document.getElementById("thoughtDisplay").innerHTML = "⚠️ Failed to load thought. Try again!";
       });
-  });
-  
+});
